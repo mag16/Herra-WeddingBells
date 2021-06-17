@@ -1,0 +1,47 @@
+{
+	"name": "weddingbells-be",
+	"version": "1.0.0",
+	"description": "Allows users to interactively manage and view, in real time, guests lists, invitation status, and gift registry.",
+	"main": "index.js",
+	"repository": "https://github.com/Lambda-School-Labs/wedding-bells-be",
+	"author": "Dan Sample, Cedric Amaya, Marco Guzman, Poly Goveia, Sammy Chang, Brey Batten",
+	"license": "MIT",
+	"scripts": {
+		"db:migrate": "./node_modules/.bin/knex migrate:latest",
+		"db:drop": "./node_modules/.bin/knex migrate:rollback --all",
+		"db:seed": "./node_modules/.bin/knex seed:run",
+		"db:setup": "yarn db:drop && yarn db:migrate && yarn db:seed",
+		"start": "node index.js",
+		"server": "nodemon index.js",
+		"test": "cross-env DB_ENV=testing jest --watch"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"bcrypt": "^3.0.6",
+		"bcryptjs": "^2.4.3",
+		"connect-session-knex": "^1.4.0",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-session": "^1.16.2",
+		"handlebars": "^4.5.3",
+		"helmet": "^3.20.0",
+		"heroku": "^7.33.3",
+		"jsonwebtoken": "^8.5.1",
+		"knex": "^0.19.3",
+		"knex-cleaner": "^1.3.0",
+		"nodemailer": "^6.4.2",
+		"pg": "^7.12.1",
+		"sqlite3": "^4.1.0",
+		"uuidv4": "^5.0.1"
+	},
+	"devDependencies": {
+		"cross-env": "^6.0.3",
+		"jest": "^24.9.0",
+		"nodemon": "^1.19.1",
+		"supertest": "^4.0.2"
+	}
+}
